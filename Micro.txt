@@ -1,0 +1,30 @@
+if RE(oneSecScreenFourOne) then
+	if(isMixedMassFinished = 1 and isArmatureFinished = 1 and isValveOpened3 = 1)then
+		if(fallingCement[2] = 0)then
+			FOR cntCement:=0 to 3 BY +1 DO
+				if(currentCement = cntCement)then
+					fallingCement[cntCement]:=1;
+				end_if;
+			end_for;
+			currentCement:= currentCement + 1;
+			if(currentCement = 3)then
+				fallingCement[2]:=1;
+			end_for;
+		end_if;
+		if(fallingCement[2] = 1)then
+			if(fiiledValue>=0 and fiiledValue<4)then
+				fiiledValue:=fiiledValue+1;
+			end_if;
+			if(fiiledValue = 4)then
+				newEmptyBoxTwo:=0;
+				fiiledValue:=0;
+				isArmatureFinished:=0;
+				isMixedMassFinished:=0;
+				fallingCement[0]:=0;
+				fallingCement[1]:=0;
+				fallingCement[2]:=0;
+				newFilledBoxOne:=1;
+			end_if;
+		end_if;
+	end_if;
+end_if;
